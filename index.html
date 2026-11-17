@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="et">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f8f6">
+  <meta name="description" content="ÕpiPlaan aitab õppimist planeerida, keskenduda ja puhata. Vähem stressi, rohkem saavutusi!">
+  <title>ÕpiPlaan – Vähem stressi, rohkem saavutusi!</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <svg class="icon-library" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 19V5m0 14h17"/><path d="M8 15v-4m5 4V7m5 8v-6"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1 1.4 1.1-1.4 2.4-1.7-.7a8 8 0 0 1-1.6.9l-.3 1.8h-2.8l-.3-1.8a8 8 0 0 1-1.6-.9l-1.7.7-1.4-2.4 1.4-1.1a7 7 0 0 1 0-1.9l-1.4-1.1 1.4-2.4 1.7.7a8 8 0 0 1 1.6-.9l.3-1.8h2.8l.3 1.8a8 8 0 0 1 1.6.9l1.7-.7 1.4 2.4-1.4 1.1a7 7 0 0 1-.1 1.8Z" transform="translate(-1 -1) scale(1.08)"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 3 1.9 5.8L20 11l-6.1 2.2L12 19l-2-5.8L4 11l6-2.2L12 3Z"/><path d="m19 14 1 3 3 1-3 1-1 3-1-3-3-1 3-1 1-3Z"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18m-2 0-.9 14H5.9L5 6m4 0V4h6v2m-5 4v6m4-6v6"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="m16 4 4 4M4 20l4-.8L19 8a2.1 2.1 0 0 0-3-3L5 16l-1 4Z"/></symbol>
+  </svg>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" data-page="dashboard" aria-label="ÕpiPlaan avaleht">
+        <span class="brand-mark"><svg class="icon"><use href="#i-book"/></svg></span>
+        <span class="brand-copy"><strong>ÕpiPlaan</strong><small>õpi omas tempos</small></span>
+      </a>
+      <div class="nav-caption">MENÜÜ</div>
+      <nav class="main-nav" aria-label="Peamenüü">
+        <button class="nav-link active" data-page="dashboard"><svg class="icon"><use href="#i-grid"/></svg><span>Avaleht</span></button>
+        <button class="nav-link" data-page="tasks"><svg class="icon"><use href="#i-check"/></svg><span>Minu ülesanded</span><span class="nav-count" id="nav-task-count">0</span></button>
+        <button class="nav-link" data-page="calendar"><svg class="icon"><use href="#i-calendar"/></svg><span>Kalender</span></button>
+        <button class="nav-link" data-page="pomodoro"><svg class="icon"><use href="#i-clock"/></svg><span>Keskendumine</span></button>
+        <button class="nav-link" data-page="progress"><svg class="icon"><use href="#i-chart"/></svg><span>Edenemine</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="quote-card"><span class="quote-icon"><svg class="icon"><use href="#i-spark"/></svg></span><p>Iga väike samm viib sind lähemale sinu eesmärgile.</p></div>
+        <button class="nav-link settings-link" data-page="settings"><svg class="icon"><use href="#i-settings"/></svg><span>Seaded</span></button>
+        <div class="profile-chip"><span class="avatar" id="avatar-initial">Õ</span><span><strong id="sidebar-name">Õppija</strong><small>Minu õpinurk</small></span></div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu icon-button" id="mobile-menu" aria-label="Ava menüü"><span class="menu-lines"></span></button>
+        <div class="breadcrumb"><span>ÕpiPlaan</span><svg class="icon"><use href="#i-arrow-right"/></svg><strong id="page-title">Avaleht</strong></div>
+        <div class="topbar-actions"><span class="today-label" id="top-date"></span><button class="icon-button theme-toggle" id="theme-toggle" aria-label="Vaheta kujundust"><svg class="icon"><use href="#i-moon"/></svg></button><button class="button button-primary top-add" data-action="new-task"><svg class="icon"><use href="#i-plus"/></svg><span>Lisa ülesanne</span></button></div>
+      </header>
+
+      <div class="content">
+        <section class="page-section active" id="page-dashboard" aria-labelledby="welcome-title">
+          <div class="welcome-row">
+            <div><p class="eyebrow" id="today-long"></p><h1 id="welcome-title">Tere tulemast, <span id="welcome-name">Õppija</span>! <span class="wave">✦</span></h1><p class="subheading">Võta üks asi korraga — sul läheb hästi.</p></div>
+            <button class="button button-primary" data-action="new-task"><svg class="icon"><use href="#i-plus"/></svg>Lisa uus ülesanne</button>
+          </div>
+          <div class="stats-grid" id="dashboard-stats"></div>
+          <div class="dashboard-grid">
+            <article class="card focus-card">
+              <div class="card-heading"><div><p class="eyebrow">KESKENDUMINE</p><h2>Sinu fookus</h2></div><button class="text-button" data-page="pomodoro">Ava taimer <svg class="icon"><use href="#i-arrow-right"/></svg></button></div>
+              <div class="focus-content"><div class="focus-illustration"><div class="focus-orbit orbit-one"></div><div class="focus-orbit orbit-two"></div><div class="focus-core"><svg class="icon"><use href="#i-clock"/></svg></div><span class="floating-dot dot-one"></span><span class="floating-dot dot-two"></span></div><div class="focus-copy"><strong>Väikesed sammud loevad.</strong><p>25 minutit keskendunud õppimist aitab sul suure asjaga algust teha.</p><button class="button button-soft" data-action="start-focus">Alusta 25-minutilist fookust <svg class="icon"><use href="#i-arrow-right"/></svg></button></div></div>
+            </article>
+            <article class="card weekly-card"><div class="card-heading"><div><p class="eyebrow">SINU RÜTM</p><h2>Nädala edenemine</h2></div><span class="mini-badge"><svg class="icon"><use href="#i-chart"/></svg> 7 päeva</span></div><div class="chart-summary"><strong id="week-completed">0</strong><span>lõpetatud ülesannet sel nädalal</span></div><div class="bar-chart" id="dashboard-chart" aria-label="Viimase seitsme päeva edenemise graafik"></div></article>
+          </div>
+          <div class="dashboard-grid lower-grid">
+            <article class="card upcoming-card"><div class="card-heading"><div><p class="eyebrow">ÄRA UNUSTA</p><h2>Lähenevad tähtajad</h2></div><button class="text-button" data-page="tasks">Kõik ülesanded <svg class="icon"><use href="#i-arrow-right"/></svg></button></div><div id="upcoming-list" class="task-preview-list"></div></article>
+            <article class="card today-card"><div class="card-heading"><div><p class="eyebrow">PÄEVA PLAAN</p><h2>Tänased ülesanded</h2></div><span class="today-count" id="today-count">0</span></div><div id="today-list" class="task-preview-list"></div><button class="button button-outline full-button" data-page="tasks">Vaata ülesandeid <svg class="icon"><use href="#i-arrow-right"/></svg></button></article>
+          </div>
+        </section>
+
+        <section class="page-section" id="page-tasks">
+          <div class="page-heading"><div><p class="eyebrow">HOIA ASJAD KONTROLLI ALL</p><h1>Minu ülesanded</h1><p class="subheading">Pane kirja, mis vajab tegemist. Üks samm korraga.</p></div><button class="button button-primary" data-action="new-task"><svg class="icon"><use href="#i-plus"/></svg>Lisa ülesanne</button></div>
+          <div class="task-toolbar card"><div class="filter-tabs" role="group" aria-label="Ülesannete filter"><button class="filter-tab active" data-filter="all">Kõik <span id="filter-all-count">0</span></button><button class="filter-tab" data-filter="active">Tegemata <span id="filter-active-count">0</span></button><button class="filter-tab" data-filter="completed">Tehtud <span id="filter-completed-count">0</span></button></div><label class="search-box"><span class="visually-hidden">Otsi ülesandeid</span><svg class="icon"><use href="#i-grid"/></svg><input id="task-search" type="search" placeholder="Otsi ülesannet..." autocomplete="off"></label></div>
+          <div class="task-list card" id="task-list"></div>
+        </section>
+
+        <section class="page-section" id="page-calendar">
+          <div class="page-heading"><div><p class="eyebrow">SINU AEG, SINU PLAAN</p><h1>Kalender</h1><p class="subheading">Vaata, mis sind ees ootab ja planeeri rahulikult.</p></div><button class="button button-primary" data-action="new-task"><svg class="icon"><use href="#i-plus"/></svg>Lisa ülesanne</button></div>
+          <article class="card calendar-card">
+            <div class="calendar-toolbar"><div class="calendar-month-control"><button class="icon-button" data-calendar="prev" aria-label="Eelmine periood"><svg class="icon"><use href="#i-arrow-left"/></svg></button><h2 id="calendar-heading"></h2><button class="icon-button" data-calendar="next" aria-label="Järgmine periood"><svg class="icon"><use href="#i-arrow-right"/></svg></button><button class="button button-outline button-small" data-calendar="today">Täna</button></div><div class="calendar-view-switch"><button class="filter-tab" data-calendar-mode="day">Päev</button><button class="filter-tab" data-calendar-mode="week">Nädal</button><button class="filter-tab active" data-calendar-mode="month">Kuu</button></div></div>
+            <div id="calendar-grid" class="calendar-grid"></div><div class="calendar-legend"><span><i class="legend-dot due-dot"></i>Tähtaeg</span><span><i class="legend-dot done-dot"></i>Tehtud</span></div>
+          </article>
+          <article class="card selected-day-card"><div class="card-heading"><div><p class="eyebrow">VALITUD PÄEV</p><h2 id="selected-day-heading"></h2></div><button class="button button-outline button-small" data-action="new-task"><svg class="icon"><use href="#i-plus"/></svg>Lisa</button></div><div class="task-preview-list" id="selected-day-tasks"></div></article>
+        </section>
+
+        <section class="page-section" id="page-pomodoro">
+          <div class="page-heading"><div><p class="eyebrow">VÄIKE PAUS, SUUR TULEMUS</p><h1>Keskendumine</h1><p class="subheading">Tee üks asi korraga. Puhkamine on samuti osa õppimisest.</p></div></div>
+          <div class="pomodoro-layout"><article class="card pomodoro-card"><div class="timer-mode-tabs" role="group" aria-label="Taimeri režiim"><button class="filter-tab active" data-timer-mode="focus">Õppimine · 25 min</button><button class="filter-tab" data-timer-mode="short">Lühike paus · 5 min</button><button class="filter-tab" data-timer-mode="long">Pikk paus · 15 min</button></div><div class="timer-face" id="timer-face"><svg class="timer-ring" viewBox="0 0 260 260" aria-hidden="true"><circle class="timer-track" cx="130" cy="130" r="118"/><circle class="timer-progress" id="timer-progress" cx="130" cy="130" r="118"/></svg><div class="timer-label"><span id="timer-mode-label">ÕPIAEG</span><strong id="timer-display">25:00</strong><small id="timer-status">Valmis alustama?</small></div></div><div class="timer-controls"><button class="button button-primary timer-start" id="timer-start"><svg class="icon"><use href="#i-clock"/></svg>Alusta</button><button class="button button-outline" id="timer-reset">Lähtesta</button></div><p class="timer-hint"><svg class="icon"><use href="#i-spark"/></svg>Iga nelja õppimisringi järel võta pikem paus.</p></article><aside class="pomodoro-side"><article class="card session-card"><span class="session-icon"><svg class="icon"><use href="#i-spark"/></svg></span><p class="eyebrow">TÄNA FOKUSEERITUD</p><strong id="focus-today">0 min</strong><span id="focus-sessions-today">0 õppimisringi lõpetatud</span></article><article class="card tip-card"><p class="eyebrow">VÄIKE MEELDETULETUS</p><h2>Pane segajad korraks kõrvale.</h2><p>Sea endale üks väike eesmärk, hinga sügavalt ja alusta. Sa ei pea kõike korraga tegema.</p><span class="tip-decoration"><svg class="icon"><use href="#i-book"/></svg></span></article></aside></div>
+        </section>
+
+        <section class="page-section" id="page-progress">
+          <div class="page-heading"><div><p class="eyebrow">VAATA, KUI KAUGELE OLED JÕUDNUD</p><h1>Sinu edenemine</h1><p class="subheading">Iga lõpetatud ülesanne on tubli saavutus.</p></div></div>
+          <div class="stats-grid" id="progress-stats"></div><div class="progress-grid"><article class="card progress-chart-card"><div class="card-heading"><div><p class="eyebrow">VIIMASED 7 PÄEVA</p><h2>Lõpetatud ülesanded</h2></div></div><div class="large-chart" id="progress-chart"></div></article><article class="card completion-card"><p class="eyebrow">ÜLDINE EDENEMINE</p><h2>Väga tubli töö!</h2><div class="completion-ring" id="completion-ring"><div><strong id="completion-percent">0%</strong><span>tehtud</span></div></div><p id="completion-caption">Alusta esimese ülesande lisamisega.</p></article></div>
+          <article class="card study-stats-card"><div class="card-heading"><div><p class="eyebrow">KESKENDUMISE AEG</p><h2>Nädala õppimisstatistika</h2></div><span class="mini-badge"><svg class="icon"><use href="#i-clock"/></svg><span id="week-focus-total">0 min</span></span></div><div id="study-chart" class="bar-chart study-chart"></div></article>
+        </section>
+
+        <section class="page-section" id="page-settings">
+          <div class="page-heading"><div><p class="eyebrow">SINU RAKENDUS, SINU MOODI</p><h1>Seaded</h1><p class="subheading">Kohanda ÕpiPlaan enda järgi.</p></div></div>
+          <div class="settings-grid"><article class="card settings-card"><div class="settings-section"><span class="settings-icon"><svg class="icon"><use href="#i-spark"/></svg></span><div class="settings-copy"><h2>Sinu nimi</h2><p>Kasutame seda sinu tervitamisel.</p><form id="name-form" class="name-form"><label class="visually-hidden" for="display-name">Sinu nimi</label><input id="display-name" name="name" maxlength="32" placeholder="Sisesta oma nimi"><button class="button button-primary button-small" type="submit">Salvesta</button></form></div></div><div class="settings-section"><span class="settings-icon"><svg class="icon"><use href="#i-moon"/></svg></span><div class="settings-copy"><h2>Kujundus</h2><p>Vali hele või silmasõbralik tume vaade.</p></div><button class="theme-choice" id="settings-theme" type="button" aria-label="Vaheta kujundust"><span></span></button></div><div class="settings-section"><span class="settings-icon"><svg class="icon"><use href="#i-book"/></svg></span><div class="settings-copy"><h2>Sinu andmed</h2><p>Ülesanded ja seaded salvestatakse selles brauseris.</p></div><span class="local-badge">Ainult sinu seadmes</span></div></article><article class="card danger-card"><span class="danger-icon"><svg class="icon"><use href="#i-trash"/></svg></span><div><h2>Kustuta kõik andmed</h2><p>Kõik ülesanded, eelistused ja õppimisstatistika eemaldatakse sellest brauserist. Seda ei saa tagasi võtta.</p><button class="button button-danger" id="clear-data"><svg class="icon"><use href="#i-trash"/></svg>Kustuta minu andmed</button></div></article></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <dialog class="task-dialog" id="task-dialog" aria-labelledby="dialog-title">
+    <form id="task-form" novalidate>
+      <div class="dialog-heading"><div><p class="eyebrow">PLANEERI OMA ÕPPIMIST</p><h2 id="dialog-title">Lisa ülesanne</h2></div><button class="icon-button dialog-close" type="button" aria-label="Sulge" data-action="close-dialog">×</button></div>
+      <input type="hidden" name="id">
+      <label class="field-label" for="task-title">Ülesande nimi <span>*</span></label><input class="form-control" id="task-title" name="title" maxlength="80" required placeholder="Nt. Korrata murde">
+      <div class="form-row"><div><label class="field-label" for="task-subject">Õppeaine või kategooria</label><input class="form-control" id="task-subject" name="subject" maxlength="40" placeholder="Nt. Matemaatika"></div><div><label class="field-label" for="task-due">Tähtaeg <span>*</span></label><input class="form-control" id="task-due" name="dueDate" type="date" required></div></div>
+      <div class="form-row"><div><label class="field-label" for="task-priority">Prioriteet</label><select class="form-control" id="task-priority" name="priority"><option value="medium">Keskmine</option><option value="high">Kõrge</option><option value="low">Madal</option></select></div><div><label class="field-label" for="task-category">Tüüp</label><select class="form-control" id="task-category" name="category"><option value="Kodutöö">Kodutöö</option><option value="Kontrolltöö">Kontrolltöö</option><option value="Õppimine">Õppimine</option><option value="Projekt">Projekt</option><option value="Muu">Muu</option></select></div></div>
+      <label class="field-label" for="task-description">Kirjeldus <span class="optional">(valikuline)</span></label><textarea class="form-control" id="task-description" name="description" rows="3" maxlength="500" placeholder="Lisa täpsustusi või väiksemad sammud..."></textarea>
+      <p class="form-error" id="form-error" role="alert"></p>
+      <div class="dialog-actions"><button class="button button-outline" type="button" data-action="close-dialog">Tühista</button><button class="button button-primary" type="submit"><svg class="icon"><use href="#i-check"/></svg><span id="save-task-label">Salvesta ülesanne</span></button></div>
+    </form>
+  </dialog>
+  <div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
