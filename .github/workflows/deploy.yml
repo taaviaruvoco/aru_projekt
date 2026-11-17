@@ -35,7 +35,7 @@ jobs:
 
           remote="$SSH_SERVER"
           ### NÄIDIS! ### deploy_path=/data01/virt146488/domeenid/www.timopuistaja.eu/puistajaprojekt
-          deploy_path=/data01/virtXXXXX/domeenid/www.tarkmeestaskus.eu/projektikaust
+          deploy_path=/data01/virt152876/domeenid/www.tarkmeestaskus.eu/projektikaust
 
           ssh "$remote" 'command -v rsync >/dev/null || { echo "rsync is not installed on the server" >&2; exit 127; }'
           ssh "$remote" "mkdir -p '$deploy_path'"
